@@ -1,0 +1,103 @@
+.admin-container {
+  display: flex;
+  max-width: 2000px;
+  margin: 0 auto;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 230px;
+  background-color: #fff;
+  border-right: 1px solid #ddd;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidenav h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #3a7bd5;
+}
+
+.mat-nav-list {
+  padding: 0;
+}
+
+.mat-list-item {
+  cursor: pointer;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.mat-list-item:hover,
+.mat-list-item.active {
+  background-color: #3a7bd5;
+  color: #fff;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+  overflow-x: auto;
+}
+
+.main-content h3 {
+  margin-bottom: 20px;
+  color: #3a7bd5;
+}
+
+.right-align-button {
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+.mat-table {
+  width: 100%;
+  table-layout: auto;
+}
+
+.mat-header-cell {
+  padding: 8px;
+  font-size: 1em;
+}
+
+.mat-cell {
+  padding: 8px;
+  word-wrap: break-word;
+}
+
+.mat-column-rut {
+  width: 150px;
+}
+
+.mat-column-email {
+  width: 200px;
+}
+
+.mat-column-phone {
+  width: 120px;
+}
+
+.mat-column-address {
+  width: 150px;
+}
+
+.mat-column-roles {
+  width: 80px;
+}
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+

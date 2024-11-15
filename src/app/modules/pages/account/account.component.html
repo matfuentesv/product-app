@@ -1,0 +1,91 @@
+<div class="account-container">
+  <h2>Mi cuenta</h2>
+  <form [formGroup]="accountForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-md-6">
+        <label for="firstName">Nombre</label>
+        <input type="text" [ngClass]="{'input-error':validFirstName}" id="firstName" class="form-control" formControlName="firstName" required>
+        <div *ngIf="accountForm.get('firstName')?.invalid && accountForm.get('firstName')?.touched">
+          <small class="error" *ngIf="accountForm.get('firstName')?.errors?.['required']">El nombre es obligatorio.</small>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label for="lastName">Apellido</label>
+        <input type="text" [ngClass]="{'input-error':validLastName}" id="lastName" class="form-control" formControlName="lastName" required>
+        <div *ngIf="accountForm.get('lastName')?.invalid && accountForm.get('lastName')?.touched">
+          <small class="error" *ngIf="accountForm.get('lastName')?.errors?.['required']">El apellido son obligatorios.</small>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="rut">Rut</label>
+          <input [ngClass]="{'input-error':validRut}" appFormatRut class="form-control" formControlName="rut" id="rut"
+                 required type="text">
+          <div *ngIf="accountForm.get('rut')?.invalid && accountForm.get('rut')?.touched">
+            <small *ngIf="accountForm.get('rut')?.errors?.['required']" class="error">El rut son obligatorios.</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="phone">Celular</label>
+          <input (keypress)='validateNumbers($event)' [ngClass]="{'input-error':validPhone}" class="form-control" formControlName="phone" id="phone"
+                 required type="text">
+          <div *ngIf="accountForm.get('phone')?.invalid && accountForm.get('phone')?.touched">
+            <small *ngIf="accountForm.get('phone')?.errors?.['required']" class="error">El celular es
+              obligatorio.</small>
+            <small *ngIf="accountForm.get('phone')?.errors?.['phone']" class="error">El celular no es válido.</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="lastName">Correo</label>
+          <input [ngClass]="{'input-error':validEmail}" class="form-control" formControlName="email" id="email"
+                 required type="email">
+          <div *ngIf="accountForm.get('email')?.invalid && accountForm.get('email')?.touched">
+            <small *ngIf="accountForm.get('email')?.errors?.['required']" class="error">El correo es
+              obligatorio.</small>
+            <small *ngIf="accountForm.get('email')?.errors?.['email']" class="error">El correo no es válido.</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="address">Dirección</label>
+          <input [ngClass]="{'input-error':validAddress}" class="form-control w-100" formControlName="address" id="address"
+                 required type="text">
+          <div *ngIf="accountForm.get('address')?.invalid && accountForm.get('address')?.touched">
+            <small *ngIf="accountForm.get('address')?.errors?.['required']" class="error">La dirección es
+              obligatorio.</small>
+            <small *ngIf="accountForm.get('address')?.errors?.['address']" class="error">La dirección no es
+              válido.</small>
+          </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+            <label >Contraseña</label>
+            <input type="password" [ngClass]="{'input-error':validPassword}" id="password" class="form-control" formControlName="password" required>
+            <div *ngIf="accountForm.get('password')?.invalid && accountForm.get('password')?.touched">
+              <small class="error" *ngIf="accountForm.get('password')?.errors?.['required']">La contraseña es obligatoria.</small>
+              <small class="error" *ngIf="accountForm.get('password')?.errors?.['pattern']">La contraseña debe tener al menos un número y una letra mayúscula.</small>
+              <small class="error" *ngIf="accountForm.get('password')?.errors?.['minlength']">La contraseña debe tener al menos 6 caracteres.</small>
+              <small class="error" *ngIf="accountForm.get('password')?.errors?.['maxlength']">La contraseña no puede exceder los 18 caracteres.</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary w-100 text-center">Actualizar cuenta</button>
+  </form>
+</div>

@@ -1,0 +1,34 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border-0 shadow-lg">
+      <div class="modal-header border-0">
+        <h5 class="modal-title" id="loginModalLabel">Inicia sesión para comprar</h5>
+        <button type="button" (click)="close()" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label for="email" class="form-label">Correo Electrónico</label>
+          <input type="email" class="form-control" formControlName="email" id="email" required>
+          <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+            <small class="error" *ngIf="loginForm.get('email')?.errors">El correo es obligatorio.</small>
+            <small class="error" *ngIf="loginForm.get('email')?.errors">El correo no es válido.</small>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Contraseña</label>
+          <input type="password" class="form-control" formControlName="password" id="password" required>
+          <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+            <small class="error" *ngIf="loginForm.get('password')?.errors">La contraseña es obligatoria.</small>
+          </div>
+          <a (click)="recoverPassword()" class="d-block mt-2 text-center">¿Olvidaste tu contraseña?</a>
+        </div>
+        <button type="submit" class="btn btn-primary w-100" [disabled]="loginForm.invalid">Iniciar Sesión</button>
+        <small class="error" *ngIf="!isValidUser">Email y/o clave incorrectos</small>
+        <div class="text-center mt-3">
+          <p>¿Aun no tienes cuenta?</p>
+          <a (click)="register()" class="d-block mt-2">Crear una cuenta nueva</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

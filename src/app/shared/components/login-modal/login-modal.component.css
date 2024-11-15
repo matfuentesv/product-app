@@ -1,0 +1,57 @@
+.modal-content {
+  padding: 20px;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1) !important;
+}
+
+.modal-header {
+  border-bottom: none !important;
+  border-radius: 0 !important;
+}
+
+.modal-footer {
+  border-top: none !important;
+  border-radius: 0 !important;
+}
+
+#loginModal .modal-content {
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1) !important;
+}
+
+#loginModal .modal-header {
+  border-bottom: none !important;
+  border-radius: 0 !important;
+}
+
+#loginModal .modal-body {
+  padding: 2rem !important;
+  border-radius: 0 !important;
+}
+
+#loginModal .btn-close {
+  padding: 0.5rem 1rem !important;
+  border-radius: 0 !important;
+}
+
+#loginModal .form-control {
+  border-radius: 0 !important;
+}
+
+#loginModal .btn-primary {
+  border-radius: 0 !important;
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+#loginModal .btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+}

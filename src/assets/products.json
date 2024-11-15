@@ -1,0 +1,19 @@
+{
+  "notebooks": [
+    {
+      "name": "Laptop Pro",
+      "price": 1500,
+      "discount": 10,
+      "description": "A powerful laptop",
+      "image": "laptop.jpg",
+      "category": "notebooks",
+      "originalPrice": 1650,
+      "rating": 4.5,
+      "reviews": 120
+    }
+  ],
+  "cellPhones": [],
+  "coffeeMakers": [],
+  "airConditioning": [],
+  "outstanding": []
+}

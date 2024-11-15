@@ -1,0 +1,60 @@
+<nav class="navbar navbar-expand-lg navbar-custom">
+  <div class="container-fluid">
+    <a class="navbar-brand d-flex align-items-center" routerLink="/home">
+      <span class="text-white">Product Market</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item menu-container">
+          <button class="menu-button btn text-white pt-3">
+            <i class="fas fa-bars"></i> Menú
+          </button>
+          <div class="menu-dropdown">
+            <a class="dropdown-item">Tecnología</a>
+            <div class="submenu">
+              <a class="dropdown-item" routerLink="/notebooks">Computadoras</a>
+              <a class="dropdown-item" routerLink="/cell-phones">Celulares</a>
+            </div>
+            <a class="dropdown-item">Electrohogar</a>
+            <div class="submenu">
+              <a class="dropdown-item" routerLink="/air-conditioning">Aire acondicionado</a>
+              <a class="dropdown-item" routerLink="/coffee-makers">Cafeteras eléctricas</a>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white pt-3" routerLink="/home">Inicio</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item dropdown" *ngIf="!userName">
+          <span (click)="openModal()" class="nav-link text-white"><i class="fas fa-user"></i> Hola, Inicia sesión</span>
+        </li>
+        <li class="nav-item dropdown" *ngIf="userName">
+          <a class="nav-link dropdown-toggle text-white" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Hola, {{ userName }}
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" [routerLink]="['account']">Mi cuenta</a></li>
+            <li><a class="dropdown-item" *ngIf="userRole === 'admin'" [routerLink]="['/admin']">Administración</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" (click)="logout()" href="#">Cerrar sesión</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" [routerLink]="['/cart']">
+            <i class="fas fa-shopping-cart"></i> Mi carrito
+            <span *ngIf="cartItemCount > 0" class="badge bg-danger">{{ cartItemCount }}</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="host-container">
+  <router-outlet></router-outlet>
+</div>
+<app-footer></app-footer>

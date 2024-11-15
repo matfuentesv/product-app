@@ -1,0 +1,16 @@
+.error {
+  color: red;
+  font-size: 12px;
+}
+
+.input-error {
+  border: 1px solid red;
+  outline: none;
+}
+
+
+
+.input-disabled{
+  color: #fff;
+  background-color: #a4a5a8;
+}

@@ -1,0 +1,91 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-6">
+      <h3>Regístrate</h3>
+      <form [formGroup]="registerForm"  (ngSubmit)="onSubmit()" id="registerForm">
+        <div class="form-group">
+          <label for="firstName">Nombre</label>
+          <input type="text" [ngClass]="{'input-error':validFirstName}" id="firstName" class="form-control" formControlName="firstName" required>
+          <div *ngIf="registerForm.get('firstName')?.invalid && registerForm.get('firstName')?.touched">
+            <small class="error" *ngIf="registerForm.get('firstName')?.errors?.['required']">El nombre es obligatorio.</small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Apellido</label>
+          <input type="text" [ngClass]="{'input-error':validLastName}" id="lastName" class="form-control" formControlName="lastName" required>
+          <div *ngIf="registerForm.get('lastName')?.invalid && registerForm.get('lastName')?.touched">
+            <small class="error" *ngIf="registerForm.get('lastName')?.errors?.['required']">El apellido son obligatorios.</small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="rut">Rut</label>
+          <input type="text" [ngClass]="{'input-error':validRut}" id="rut" class="form-control" formControlName="rut" required>
+          <div *ngIf="registerForm.get('rut')?.invalid && registerForm.get('rut')?.touched">
+            <small class="error" *ngIf="registerForm.get('rut')?.errors?.['required']">El rut es obligatorio.</small>
+            <small class="error" *ngIf="registerForm.get('rut')?.errors?.['rut']">El rut no es válido.</small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="phone">Celular</label>
+            <input type="text" [ngClass]="{'input-error':validPhone}" id="phone" class="form-control" formControlName="phone" required>
+            <div *ngIf="registerForm.get('phone')?.invalid && registerForm.get('phone')?.touched">
+              <small class="error" *ngIf="registerForm.get('phone')?.errors?.['required']">El celular es obligatorio.</small>
+              <small class="error" *ngIf="registerForm.get('phone')?.errors?.['phone']">El celular no es válido.</small>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+          <label for="phone">Dirección</label>
+          <input type="text" [ngClass]="{'input-error':validAddress}" id="address" class="form-control" formControlName="address" required>
+          <div *ngIf="registerForm.get('address')?.invalid && registerForm.get('address')?.touched">
+            <small class="error" *ngIf="registerForm.get('address')?.errors?.['required']">La dirección es obligatorio.</small>
+            <small class="error" *ngIf="registerForm.get('address')?.errors?.['address']">La dirección  no es válido.</small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label >Correo electrónico</label>
+          <input type="email" [ngClass]="{'input-error':validEmail}" id="email" class="form-control" formControlName="email" required>
+          <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+            <small class="error" *ngIf="registerForm.get('email')?.errors?.['required']">El correo es obligatorio.</small>
+            <small class="error" *ngIf="registerForm.get('email')?.errors?.['email']">El correo no es válido.</small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label >Contraseña</label>
+          <input type="password" [ngClass]="{'input-error':validPassword}" id="password" class="form-control" formControlName="password" required>
+          <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
+            <small class="error" *ngIf="registerForm.get('password')?.errors?.['required']">La contraseña es obligatoria.</small>
+            <small class="error" *ngIf="registerForm.get('password')?.errors?.['pattern']">La contraseña debe tener al menos un número y una letra mayúscula.</small>
+            <small class="error" *ngIf="registerForm.get('password')?.errors?.['minlength']">La contraseña debe tener al menos 6 caracteres.</small>
+            <small class="error" *ngIf="registerForm.get('password')?.errors?.['maxlength']">La contraseña no puede exceder los 18 caracteres.</small>
+          </div>
+        </div>
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="promo" formControlName="promo">
+          <label class="form-check-label" for="promo">Acepto recibir novedades y ofertas personalizadas</label>
+          <div *ngIf="registerForm.get('promo')?.invalid && registerForm.get('promo')?.touched">
+          <small class="error">Debe aceptar recibir novedades y ofertas personalizadas.</small>
+        </div>
+        </div>
+        <button type="submit" [disabled]="registerForm.invalid"   class="btn btn-primary w-100">Registrarme</button>
+      </form>
+      <p class="mt-3" (click)="openModal()">¿Ya tienes cuenta? <a class=" text-decoration-underline">Inicia sesión</a></p>
+    </div>
+    <div class="col-md-6">
+      <h3>Beneficios Elitemarket.com</h3>
+      <ul class="list-unstyled">
+        <li><i class="fas fa-bell"></i> Recibir notificaciones en tiempo real de tus pedidos.</li>
+        <li><i class="fas fa-clipboard-check"></i> Revisar tus boletos online.</li>
+        <li><i class="fas fa-credit-card"></i> Guardar métodos de pago y direcciones favoritas.</li>
+        <li><i class="fas fa-star"></i> Ser parte de Elite Puntos, el mejor programa de beneficios.</li>
+      </ul>
+      <h3 class="mt-4">Beneficios Elite Market Puntos</h3>
+      <ul class="list-unstyled">
+        <li><i class="fas fa-gift"></i> Canje de productos, experiencias, viajes y Gift Cards.</li>
+        <li><i class="fas fa-tags"></i> Promociones especiales, cupones de descuento y más.</li>
+      </ul>
+    </div>
+  </div>
+</div>

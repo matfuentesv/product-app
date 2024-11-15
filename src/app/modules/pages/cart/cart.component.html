@@ -1,0 +1,31 @@
+<div class="cart-container mt-3">
+  <h2>Carrito de Compras</h2>
+  <div class="cart-content">
+    <div class="cart-items">
+      <div *ngIf="items.length === 0">
+        <p>No hay productos en el carrito.</p>
+      </div>
+      <div *ngIf="items.length > 0" class="cart-items-list">
+        <div *ngFor="let item of items" class="cart-item">
+          <img [src]="item.image" alt="Producto" class="cart-item-image">
+          <div class="cart-item-details">
+            <h5>{{ item.name }}</h5>
+            <p>Por {{ item.category }}</p>
+            <p>{{ item.price | customCurrency }}</p>
+            <div class="cart-item-quantity">
+              <input type="number" [(ngModel)]="item.quantity" (change)="updateQuantity(item.name, item.quantity)" min="1">
+              <button class="btn btn-danger" (click)="removeItem(item.name)">Eliminar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cart-summary">
+      <h3>Resumen de la compra</h3>
+      <p>Productos: {{ total | customCurrency }}</p>
+      <p>Descuentos: {{ discount | customCurrency }}</p>
+      <p>Total: {{ (total - discount) | customCurrency }}</p>
+      <button class="btn btn-primary">Pagar</button>
+    </div>
+  </div>
+</div>

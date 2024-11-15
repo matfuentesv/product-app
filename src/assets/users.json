@@ -1,0 +1,13 @@
+[
+  {
+    "id": 1,
+    "rut": "12345678-9",
+    "firstName": "Juan",
+    "lastName": "Pérez",
+    "email": "juan.perez@example.com",
+    "phone": "123456789",
+    "address": "Calle Falsa 123",
+    "password": "1234",
+    "roles": ["customer"]
+  }
+]
